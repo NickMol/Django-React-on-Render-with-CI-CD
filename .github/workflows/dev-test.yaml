@@ -1,0 +1,18 @@
+name: Enforce dev to tst
+
+on: 
+  pull_request:
+    branches: [tst]
+
+jobs: 
+  check-source: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check source branch
+      run: |
+        if [[ "${{ github.head_ref }}" != "dev" ]]; then
+          echo "Pull request must be from dev branch."
+          exit 1
+        fi
