@@ -21,6 +21,7 @@ const Home = () =>{
 
     return(
         <div> 
+            <div>Homepage</div>
             { loading ? <p>Loading data...</p> :
             <div> 
                 {myData.map((item, index) => (
